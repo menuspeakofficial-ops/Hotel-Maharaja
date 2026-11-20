@@ -371,10 +371,10 @@ img{max-width:100%;display:block}
 
       <div class="hero-badge"><i class="fas fa-fire"></i> Authentic Maharashtrian &amp; Malvani Cuisine</div>
       <h1 class="hero-title">Royal taste.<br><span class="highlight">Freshly</span> cooked to order.</h1>
-      <p class="hero-sub">Bolai Mutton, Gavran &amp; Broiler Chicken, Chilapi Fish Specialties, Fresh Bhakri &amp; Tandoor Rotis, and Delicious Veg Dishes.</p>
+      <p class="hero-sub">Bolai Mutton, Gavran &amp; Broiler Chicken, Tandoori Specials, Fresh Fish, Crisp Snacks, and Authentic Veg &amp; Non-Veg Thalis.</p>
 
       <div class="hero-notice">
-        <span><i class="fas fa-clock"></i> ऑर्डर दिल्यानंतर जेवण १० मिनिटांनी मिळेल</span>
+        <span><i class="fas fa-clock"></i> ऑर्डर दिल्यानंतर जेवण १५ ते २० मिनिटांनी मिळेल</span>
         <span>•</span>
         <span><i class="fas fa-ban"></i> एकदा दिलेली ऑर्डर कॅन्सल केली जाणार नाही</span>
       </div>
@@ -392,25 +392,27 @@ img{max-width:100%;display:block}
   <div class="search-section" id="menuSection">
     <div class="search-wrapper">
       <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" placeholder="Search Bolai Mutton, Gavran Chicken, Broiler Chicken, Chilapi Fish, Paneer..." aria-label="Search menu">
+      <input type="text" id="searchInput" placeholder="Search Bolai Mutton, Gavran Chicken, Tandoori, Biryani, Paneer, Snacks..." aria-label="Search menu">
       <button id="searchBtn">Search</button>
     </div>
     <div class="categories" id="categoryContainer">
       <button class="cat-btn active" data-category="all"><i class="fas fa-utensils"></i> All Items</button>
       <button class="cat-btn" data-category="thali"><i class="fas fa-drumstick-bite"></i> Special Thali</button>
       <button class="cat-btn" data-category="nonveg"><i class="fas fa-fire"></i> Non-Veg Main</button>
-      <button class="cat-btn" data-category="egg"><i class="fas fa-fish"></i> Chilapi Fish &amp; Egg</button>
+      <button class="cat-btn" data-category="tandoori"><i class="fas fa-burn"></i> Tandoori</button>
+      <button class="cat-btn" data-category="egg"><i class="fas fa-fish"></i> Fish &amp; Egg</button>
       <button class="cat-btn" data-category="veg"><i class="fas fa-leaf"></i> Veg Main Course</button>
       <button class="cat-btn" data-category="snacks"><i class="fas fa-pepper-hot"></i> Veg Snacks</button>
-      <button class="cat-btn" data-category="roti"><i class="fas fa-bread-slice"></i> Roti &amp; Bhakri</button>
+      <button class="cat-btn" data-category="roti"><i class="fas fa-bread-slice"></i> Roti &amp; Naan</button>
       <button class="cat-btn" data-category="rice"><i class="fas fa-bowl-rice"></i> Biryani &amp; Rice</button>
+      <button class="cat-btn" data-category="cooking"><i class="fas fa-weight-hanging"></i> Cooking (Per Kg)</button>
     </div>
   </div>
 
   <section class="menu-section">
     <div class="section-header">
       <h2 class="section-title"><i class="fas fa-bowl-food"></i> Our Menu</h2>
-      <span class="section-sub">मटण, चिकन व मासे किलो प्रमाणे बनवून मिळतील • Freshly prepared in 10 mins</span>
+      <span class="section-sub">मटण, चिकन व मासे किलो प्रमाणे बनवून मिळतील • Freshly prepared in 15-20 mins</span>
     </div>
     <div class="menu-grid" id="menuGrid"></div>
   </section>
@@ -475,7 +477,7 @@ img{max-width:100%;display:block}
 <footer class="footer">
   <p><strong>हॉटेल महाराजा · फॅमिली गार्डन अँड रेस्टॉरंट</strong></p>
   <p>अष्टापुर फाटा, ता. हवेली, जि. पुणे • कैलास कोंडे मो. 9923626411</p>
-  <p>ऑर्डर दिल्यानंतर जेवण १० मिनिटांनी मिळेल • एकदा दिलेली ऑर्डर कॅन्सल केली जाणार नाही</p>
+  <p>ऑर्डर दिल्यानंतर जेवण १५ ते २० मिनिटांनी मिळेल • एकदा दिलेली ऑर्डर कॅन्सल केली जाणार नाही</p>
 </footer>
 
 <script>
@@ -485,123 +487,116 @@ img{max-width:100%;display:block}
   /* ============ CONFIG ============ */
   const WHATSAPP_NUMBER = '919923626411';
 
-  /* ============ MENU DATA (ONLY LOCAL img/ PATHS) ============ */
-  const menuItems = [
-   // --- SPECIAL THALIS ---
-    { id:'th1', name:'Bolai Mutton Thali',                      marathi:'बोलाईचे मटण थाळी',                     price:280, category:'thali',  diet:'nonveg', desc:'Traditional Maharashtrian Bolai mutton rassa, sukkha, bhakri/roti & rice',              img:'img/bolai_mutton_thali.jpeg' },
-    { id:'th2', name:'Special Bolai Mutton Thali',              marathi:'स्पेशल बोलाईचे मटण थाळी',              price:350, category:'thali',  diet:'nonveg', desc:'Maharaja special Bolai mutton thali with extra gravy, fry & accompaniments',             img:'img/special_bolai_mutton_thali.jpeg' },
-    { id:'th3', name:'Gavran / Broiler Chicken Thali',          marathi:'गावरान / बॉयलर चिकन थाळी',             price:220, category:'thali',  diet:'nonveg', desc:'Spicy Gavran or Broiler chicken rassa, masala, bhakri/roti & indrayani rice',            img:'img/gavran_broiler_chicken_thali.jpeg' },
-    { id:'th4', name:'Special Gavran / Broiler Chicken Thali',  marathi:'स्पेशल गावरान / बॉयलर चिकन थाळी',      price:280, category:'thali',  diet:'nonveg', desc:'Royal Gavran or Broiler chicken thali with fry piece, egg curry, rassa & bhakri',        img:'img/special_gavran_broiler_chicken_thali.jpeg' },
-    { id:'th5', name:'Chilapi Fish Thali',                      marathi:'चिलापी मच्छी थाळी',                   price:250, category:'thali',  diet:'nonveg', desc:'Crispy fried Chilapi fish, coastal fish curry, bhakri & steamed rice',                   img:'img/chilapi_fish_thali.jpeg' },
-    { id:'th6', name:'Special Chilapi Fish Thali',              marathi:'स्पेशल चिलापी मच्छी थाळी',            price:320, category:'thali',  diet:'nonveg', desc:'Special Chilapi fish fry, spicy fish curry, bhakri, rice & accompaniments',             img:'img/special_chilapi_fish_thali.jpeg' },
-    { id:'th7', name:'Egg Thali Plate',                         marathi:'अंडा थाळी प्लेट',                      price:150, category:'thali',  diet:'nonveg', desc:'Boiled egg masala curry, bhakri/roti, rice & salad',                                    img:'img/egg_thali_plate.jpeg' },
+  /* ============ UPDATED MENU DATA ============ */
+  const menuItems =[
+    // --- SPECIAL THALIS ---
+    { id:'th1', name:'Bolai Mutton Thali (Sadhi)',       marathi:'बोल्हाई मटण थाळी साधी',          price:300, category:'thali',    diet:'nonveg', desc:'Traditional Maharashtrian Bolai mutton rassa, sukkha, bhakri/roti & rice',              img:'img/bolai_mutton_thali.jpeg' },
+    { id:'th2', name:'Bolai Mutton Thali (Special)',     marathi:'बोल्हाई मटण थाळी स्पेशल',        price:370, category:'thali',    diet:'nonveg', desc:'Maharaja special Bolai mutton thali with extra gravy, fry & accompaniments',             img:'img/special_bolai_mutton_thali.jpeg' },
+    { id:'th3', name:'Gavran Chicken Thali (Sadhi)',     marathi:'गावरान चिकन साधी थाळी',         price:250, category:'thali',    diet:'nonveg', desc:'Authentic Gavran chicken rassa, masala, bhakri/roti & indrayani rice',                   img:'img/gavran_broiler_chicken_thali.jpeg' },
+    { id:'th4', name:'Gavran Chicken Thali (Special)',   marathi:'गावरान स्पेशल चिकन थाळी',        price:330, category:'thali',    diet:'nonveg', desc:'Royal Gavran chicken thali with fry piece, egg curry, rassa & bhakri',                   img:'img/special_gavran_broiler_chicken_thali.jpeg' },
+    { id:'th5', name:'Broiler Chicken Thali (Sadhi)',    marathi:'बॉयलर चिकन थाळी साधी',          price:230, category:'thali',    diet:'nonveg', desc:'Spicy Broiler chicken rassa, masala, bhakri/roti & steamed rice',                        img:'img/gavran_broiler_chicken_thali.jpeg' },
+    { id:'th6', name:'Fish Thali (Sadhi)',               marathi:'मच्छी थाळी साधी',                price:230, category:'thali',    diet:'nonveg', desc:'Crispy fried fish, coastal fish curry, bhakri & steamed rice',                           img:'img/chilapi_fish_thali.jpeg' },
+    { id:'th7', name:'Fish Thali (Special)',             marathi:'मच्छी थाळी स्पेशल',              price:280, category:'thali',    diet:'nonveg', desc:'Special fish fry, spicy fish curry, bhakri, rice & accompaniments',                     img:'img/special_chilapi_fish_thali.jpeg' },
+    { id:'th8', name:'Egg Thali',                        marathi:'अंडा थाळी',                      price:180, category:'thali',    diet:'nonveg', desc:'Boiled egg masala curry, bhakri/roti, rice & salad',                                    img:'img/egg_thali_plate.jpeg' },
 
     // --- NON-VEG MAIN ---
-    { id:'nv1',  name:'Bolai Mutton Handi (Full)',              marathi:'बोलाईचे मटण हंडी फुल',                price:750, category:'nonveg', diet:'nonveg', desc:'Slow-cooked rich Maharashtrian Bolai mutton handi (Full portion)',                       img:'img/mutton_handi_full.jpeg' },
-    { id:'nv2',  name:'Bolai Mutton Handi (Half)',              marathi:'बोलाईचे मटण हंडी हाफ',                price:380, category:'nonveg', diet:'nonveg', desc:'Slow-cooked rich Maharashtrian Bolai mutton handi (Half portion)',                       img:'img/mutton_handi_half.jpeg' },
-    { id:'nv3',  name:'Gavran / Broiler Chicken Handi (Full)',  marathi:'गावरान / बॉयलर चिकन हंडी फुल',         price:580, category:'nonveg', diet:'nonveg', desc:'Authentic spice-infused Gavran or Broiler chicken handi (Full portion)',                 img:'img/gavran_broiler_chicken_handi_full.jpeg' },
-    { id:'nv4',  name:'Gavran / Broiler Chicken Handi (Half)',  marathi:'गावरान / बॉयलर चिकन हंडी हाफ',         price:300, category:'nonveg', diet:'nonveg', desc:'Authentic spice-infused Gavran or Broiler chicken handi (Half portion)',                 img:'img/gavran_broiler_chicken_handi_half.jpeg' },
-    { id:'nv5',  name:'Bolai Mutton Fry',                       marathi:'बोलाईचे मटण फ्राय',                   price:180, category:'nonveg', diet:'nonveg', desc:'Tender Bolai mutton pieces roasted in onion-garlic masala',                              img:'img/bolai_mutton_fry.jpeg' },
-    { id:'nv6',  name:'Gavran / Broiler Chicken Fry',           marathi:'गावरान / बॉयलर चिकन फ्राय',           price:140, category:'nonveg', diet:'nonveg', desc:'Crispy spicy dry Gavran or Broiler chicken fry tossed with curry leaves',                img:'img/gavran_broiler_chicken_fry.jpeg' },
-    { id:'nv7',  name:'Bolai Mutton Masala',                    marathi:'बोलाईचे मटण मसाला',                  price:220, category:'nonveg', diet:'nonveg', desc:'Rich thick-gravy Bolai mutton masala',                                                   img:'img/bolai_mutton_masala.jpeg' },
-    { id:'nv8',  name:'Gavran / Broiler Chicken Masala',        marathi:'गावरान / बॉयलर चिकन मसाला',          price:180, category:'nonveg', diet:'nonveg', desc:'Classic homestyle Gavran or Broiler chicken masala gravy',                               img:'img/gavran_broiler_chicken_masala.jpeg' },
-    { id:'nv9',  name:'Bolai Mutton Curry',                     marathi:'बोलाईचे मटण करी',                    price:240, category:'nonveg', diet:'nonveg', desc:'Traditional fiery black-masala Bolai mutton rassa',                                      img:'img/bolai_mutton_curry.jpeg' },
-    { id:'nv10', name:'Gavran / Broiler Chicken Curry',         marathi:'गावरान / बॉयलर चिकन करी',            price:200, category:'nonveg', diet:'nonveg', desc:'Aromatic Maharashtrian Gavran or Broiler chicken curry',                                 img:'img/gavran_broiler_chicken_curry.jpeg' },
-    { id:'nv11', name:'Bolai Mutton Malvani (Full)',            marathi:'बोलाईचे मटण मालवणी फुल',              price:850, category:'nonveg', diet:'nonveg', desc:'Coastal coconut-spiced Malvani Bolai mutton handi (Full)',                               img:'img/bolai_mutton_malvani_full.jpeg' },
-    { id:'nv12', name:'Bolai Mutton Malvani (Half)',            marathi:'बोलाईचे मटण मालवणी हाफ',              price:450, category:'nonveg', diet:'nonveg', desc:'Coastal coconut-spiced Malvani Bolai mutton handi (Half)',                               img:'img/bolai_mutton_malvani_half.jpeg' },
-    { id:'nv13', name:'Gavran / Broiler Chicken Malvani (Full)',marathi:'गावरान / बॉयलर चिकन मालवणी फुल',      price:650, category:'nonveg', diet:'nonveg', desc:'Authentic Malvani style Gavran or Broiler chicken gravy (Full)',                         img:'img/gavran_broiler_chicken_malvani_full.jpeg' },
-    { id:'nv14', name:'Gavran / Broiler Chicken Malvani (Half)',marathi:'गावरान / बॉयलर चिकन मालवणी हाफ',      price:350, category:'nonveg', diet:'nonveg', desc:'Authentic Malvani style Gavran or Broiler chicken gravy (Half)',                         img:'img/gavran_broiler_chicken_malvani_half.jpeg' },
+    { id:'nv1',  name:'Bolai Mutton Handi (Full)',        marathi:'बोल्हाई मटण हंडी फुल',           price:780, category:'nonveg',   diet:'nonveg', desc:'Slow-cooked rich Maharashtrian Bolai mutton handi (Full portion)',                       img:'img/mutton_handi_full.jpeg' },
+    { id:'nv2',  name:'Bolai Mutton Handi (Half)',        marathi:'बोल्हाई मटण हंडी हाफ',           price:420, category:'nonveg',   diet:'nonveg', desc:'Slow-cooked rich Maharashtrian Bolai mutton handi (Half portion)',                       img:'img/mutton_handi_half.jpeg' },
+    { id:'nv3',  name:'Bolai Mutton Masala',              marathi:'बोल्हाई मटण मसाला',              price:240, category:'nonveg',   diet:'nonveg', desc:'Rich thick-gravy Bolai mutton masala',                                                   img:'img/bolai_mutton_masala.jpeg' },
+    { id:'nv4',  name:'Bolai Mutton Curry',               marathi:'बोल्हाई मटण करी',                price:260, category:'nonveg',   diet:'nonveg', desc:'Traditional fiery black-masala Bolai mutton rassa',                                      img:'img/bolai_mutton_curry.jpeg' },
+    { id:'nv5',  name:'Bolai Mutton Kharda',              marathi:'बोल्हाई मटण खर्डा',              price:220, category:'nonveg',   diet:'nonveg', desc:'Spicy green chilli & garlic thecha roasted Bolai mutton',                                img:'img/bolai_mutton_fry.jpeg' },
+    { id:'nv6',  name:'Gavran Chicken Handi (Full)',      marathi:'गावरान चिकन हंडी फुल',           price:780, category:'nonveg',   diet:'nonveg', desc:'Authentic spice-infused Gavran chicken handi (Full portion)',                            img:'img/gavran_broiler_chicken_handi_full.jpeg' },
+    { id:'nv7',  name:'Gavran Chicken Handi (Half)',      marathi:'गावरान चिकन हंडी हाफ',           price:400, category:'nonveg',   diet:'nonveg', desc:'Authentic spice-infused Gavran chicken handi (Half portion)',                            img:'img/gavran_broiler_chicken_handi_half.jpeg' },
+    { id:'nv8',  name:'Gavran Chicken Malvani (Full)',    marathi:'गावरान चिकन मालवणी फुल',         price:850, category:'nonveg',   diet:'nonveg', desc:'Authentic Malvani style Gavran chicken handi (Full)',                                    img:'img/gavran_broiler_chicken_malvani_full.jpeg' },
+    { id:'nv9',  name:'Gavran Chicken Malvani (Half)',    marathi:'गावरान चिकन मालवणी हाफ',         price:450, category:'nonveg',   diet:'nonveg', desc:'Authentic Malvani style Gavran chicken handi (Half)',                                    img:'img/gavran_broiler_chicken_malvani_half.jpeg' },
+    { id:'nv10', name:'Gavran Chicken Masala',            marathi:'गावरान चिकन मसाला',              price:250, category:'nonveg',   diet:'nonveg', desc:'Classic homestyle Gavran chicken masala gravy',                                          img:'img/gavran_broiler_chicken_masala.jpeg' },
+    { id:'nv11', name:'Gavran Chicken Curry',             marathi:'गावरान चिकन करी',                price:230, category:'nonveg',   diet:'nonveg', desc:'Aromatic Maharashtrian Gavran chicken curry',                                            img:'img/gavran_broiler_chicken_curry.jpeg' },
+    { id:'nv12', name:'Gavran Chicken Fry',               marathi:'गावरान चिकन फ्राय',              price:200, category:'nonveg',   diet:'nonveg', desc:'Crispy spicy dry Gavran chicken fry tossed with curry leaves',                           img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'nv13', name:'Gavran Chicken Khara',             marathi:'गावरान चिकन खारा',               price:180, category:'nonveg',   diet:'nonveg', desc:'Traditional mildly spiced salted Gavran chicken preparation',                            img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'nv14', name:'Gavran Chicken Kharda',            marathi:'गावरान चिकन खर्डा',              price:220, category:'nonveg',   diet:'nonveg', desc:'Fiery green chilli & garlic kharda Gavran chicken',                                      img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'nv15', name:'Broiler Chicken Handi (Full)',     marathi:'चिकन हंडी फुल',                  price:680, category:'nonveg',   diet:'nonveg', desc:'Rich spice-infused Broiler chicken handi (Full portion)',                                img:'img/gavran_broiler_chicken_handi_full.jpeg' },
+    { id:'nv16', name:'Broiler Chicken Handi (Half)',     marathi:'चिकन हंडी हाफ',                  price:320, category:'nonveg',   diet:'nonveg', desc:'Rich spice-infused Broiler chicken handi (Half portion)',                                img:'img/gavran_broiler_chicken_handi_half.jpeg' },
+    { id:'nv17', name:'Chicken Malvani Handi (Full)',     marathi:'चिकन मालवणी फुल हंडी',           price:720, category:'nonveg',   diet:'nonveg', desc:'Coconut-spiced Malvani chicken handi (Full)',                                            img:'img/gavran_broiler_chicken_malvani_full.jpeg' },
+    { id:'nv18', name:'Chicken Malvani Handi (Half)',     marathi:'चिकन मालवणी हाफ हंडी',           price:380, category:'nonveg',   diet:'nonveg', desc:'Coconut-spiced Malvani chicken handi (Half)',                                            img:'img/gavran_broiler_chicken_malvani_half.jpeg' },
+    { id:'nv19', name:'Chicken Fry',                      marathi:'चिकन फ्राय',                     price:160, category:'nonveg',   diet:'nonveg', desc:'Crispy spicy dry chicken fry',                                                           img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'nv20', name:'Chicken Kharda',                   marathi:'चिकन खर्डा',                     price:180, category:'nonveg',   diet:'nonveg', desc:'Spicy green chilli thecha chicken dry',                                                  img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'nv21', name:'Chicken 65',                       marathi:'चिकन 65',                        price:160, category:'nonveg',   diet:'nonveg', desc:'Crispy deep-fried spicy South-Indian style chicken starter',                             img:'img/gavran_broiler_chicken_fry.jpeg' },
 
-    // --- CHILAPI FISH & EGG ---
-    { id:'fe1',  name:'Chilapi Fish Fry',                       marathi:'चिलापी मच्छी फ्राय',                  price:180, category:'egg',    diet:'nonveg', desc:'Golden crisp masala-coated Chilapi fish fry',                                            img:'img/chilapi_fish_fry.jpeg' },
-    { id:'fe2',  name:'Chilapi Fish Curry',                     marathi:'चिलापी मच्छी करी',                   price:180, category:'egg',    diet:'nonveg', desc:'Tangy coastal Chilapi fish curry',                                                       img:'img/chilapi_fish_curry.jpeg' },
-    { id:'fe3',  name:'Chilapi Fish Tawa',                      marathi:'चिलापी मच्छी तवा',                   price:130, category:'egg',    diet:'nonveg', desc:'Pan-seared tawa Chilapi fish with red chilli & garlic',                                  img:'img/chilapi_fish_tawa.jpeg' },
-    { id:'fe4',  name:'Chilapi Fish Masala',                    marathi:'चिलापी मच्छी मसाला',                 price:130, category:'egg',    diet:'nonveg', desc:'Thick spiced masala Chilapi fish gravy',                                                 img:'img/chilapi_fish_masala.jpeg' },
-    { id:'fe5',  name:'Chilapi Fish Piwali (Yellow)',           marathi:'चिलापी मच्छी पिवळी',                 price:120, category:'egg',    diet:'nonveg', desc:'Traditional turmeric & coconut yellow Chilapi fish curry',                               img:'img/chilapi_fish_piwali.jpeg' },
-    { id:'fe6',  name:'Egg Masala',                             marathi:'अंडा मसाला',                         price:100, category:'egg',    diet:'nonveg', desc:'Boiled eggs simmered in rich onion-tomato masala',                                      img:'img/egg_masala.jpeg' },
-    { id:'fe7',  name:'Egg Curry',                              marathi:'अंडा करी',                          price:100, category:'egg',    diet:'nonveg', desc:'Homestyle spiced egg curry',                                                             img:'img/egg_curry.jpeg' },
-    { id:'fe8',  name:'Omelette',                               marathi:'आमलेट',                              price:70,  category:'egg',    diet:'nonveg', desc:'Fluffy masala omelette with onions & coriander',                                         img:'img/omelette.jpeg' },
-    { id:'fe9',  name:'Egg Bhurji',                             marathi:'अंडा बुर्जी',                         price:70,  category:'egg',    diet:'nonveg', desc:'Street-style spicy scrambled eggs',                                                      img:'img/egg_bhurji.jpeg' },
-    { id:'fe10', name:'Boiled Egg Plate',                       marathi:'बॉईल प्लेट',                         price:40,  category:'egg',    diet:'nonveg', desc:'2 boiled eggs served with chaat masala & onion',                                         img:'img/boiled_egg_plate.jpeg' },
-    { id:'fe11', name:'Egg Fry',                                marathi:'अंडा फ्राय',                          price:60,  category:'egg',    diet:'nonveg', desc:'Tawa roasted half-boiled / masala fried eggs',                                           img:'img/egg_fry.jpeg' },
-    { id:'fe12', name:'Egg Pakoda',                             marathi:'अंडा पकोडा',                         price:70,  category:'egg',    diet:'nonveg', desc:'Crispy gram-flour battered egg fritters',                                                img:'img/egg_pakoda.jpeg' },
+    // --- TANDOORI ---
+    { id:'tn1',  name:'Broiler Chicken Tandoori (Full)',  marathi:'बॉयलर चिकन तंदूर फुल',           price:420, category:'tandoori', diet:'nonveg', desc:'Whole chicken marinated in yogurt & spices, roasted in clay tandoor (Full)',              img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'tn2',  name:'Broiler Chicken Tandoori (Half)',  marathi:'बॉयलर चिकन तंदूर हाफ',           price:210, category:'tandoori', diet:'nonveg', desc:'Half chicken marinated in yogurt & spices, roasted in clay tandoor (Half)',              img:'img/gavran_broiler_chicken_fry.jpeg' },
+    { id:'tn3',  name:'Special Fish Tandoori (8 Pcs)',    marathi:'स्पेशल फिश तंदूर (८ पिस)',        price:200, category:'tandoori', diet:'nonveg', desc:'8 pieces of smoky tandoor-grilled spiced fish fillets',                                  img:'img/chilapi_fish_tawa.jpeg' },
 
-    // --- ROTI & BHAKRI ---
-    { id:'rt1',  name:'Tandoor Roti',                           marathi:'तंदूर रोटी',                         price:15,  category:'roti',   diet:'veg',    desc:'Fresh clay-oven whole wheat roti',                                                       img:'img/tandoor_roti.jpeg' },
-    { id:'rt2',  name:'Butter Roti',                            marathi:'बटर रोटी',                           price:20,  category:'roti',   diet:'veg',    desc:'Tandoor roti brushed with rich butter',                                                  img:'img/butter_roti.jpeg' },
-    { id:'rt3',  name:'Tandoor Paratha',                        marathi:'तंदूर परोठा',                        price:40,  category:'roti',   diet:'veg',    desc:'Flaky layered tandoori paratha',                                                         img:'img/tandoor_paratha.jpeg' },
-    { id:'rt4',  name:'Plain Paratha',                          marathi:'प्लेन पराठा',                        price:35,  category:'roti',   diet:'veg',    desc:'Classic pan-roasted tawa paratha',                                                       img:'img/plain_parotha.jpeg' },
-    { id:'rt5',  name:'Tandoor Naan',                           marathi:'तंदूर नान',                          price:30,  category:'roti',   diet:'veg',    desc:'Soft & chewy clay-oven naan',                                                            img:'img/tandoor_naan.jpeg' },
-    { id:'rt6',  name:'Plain Naan',                             marathi:'प्लेन नान',                          price:25,  category:'roti',   diet:'veg',    desc:'Classic plain naan',                                                                     img:'img/plain_naan.jpeg' },
-    { id:'rt7',  name:'Aloo Butter Paratha',                    marathi:'आलु बटर परोठा',                      price:50,  category:'roti',   diet:'veg',    desc:'Stuffed spiced potato paratha topped with butter',                                        img:'img/butter_paratha.jpeg' },
-    { id:'rt8',  name:'Butter Missi Roti',                      marathi:'बटर मीसी रोटी',                      price:20,  category:'roti',   diet:'veg',    desc:'Spiced gram-flour & wheat roti with butter',                                             img:'img/butter_missi_roti.jpeg' },
-    { id:'rt9',  name:'Butter Kulcha',                          marathi:'बटर कुलच्या',                        price:40,  category:'roti',   diet:'veg',    desc:'Soft leavened tandoori kulcha with butter',                                              img:'img/butter_kulcha.jpeg' },
-    { id:'rt10', name:'Bajri Bhakri',                           marathi:'बाजरी भाकरी',                        price:25,  category:'roti',   diet:'veg',    desc:'Authentic hand-patted pearl millet bhakri',                                              img:'img/bajri_bhakri.jpeg' },
-    { id:'rt11', name:'Jwari Bhakri',                           marathi:'ज्वारी भाकरी',                       price:25,  category:'roti',   diet:'veg',    desc:'Traditional sorghum flatbread',                                                          img:'img/jwari_bhakri.jpeg' },
+    // --- FISH & EGG ---
+    { id:'fe1',  name:'Fish Fry',                         marathi:'मच्छी फ्राय',                    price:130, category:'egg',      diet:'nonveg', desc:'Golden crisp masala-coated fish fry',                                                    img:'img/chilapi_fish_fry.jpeg' },
+    { id:'fe2',  name:'Fish Curry',                       marathi:'मच्छी करी',                      price:180, category:'egg',      diet:'nonveg', desc:'Tangy coastal fish curry',                                                               img:'img/chilapi_fish_curry.jpeg' },
+    { id:'fe3',  name:'Fish Piwali (Yellow)',             marathi:'मच्छी पिवळी',                    price:130, category:'egg',      diet:'nonveg', desc:'Traditional turmeric & coconut yellow fish curry',                                       img:'img/chilapi_fish_piwali.jpeg' },
+    { id:'fe4',  name:'Egg Masala',                       marathi:'अंडा मसाला',                     price:120, category:'egg',      diet:'nonveg', desc:'Boiled eggs simmered in rich onion-tomato masala',                                      img:'img/egg_masala.jpeg' },
 
-    // --- NON-VEG RICE & BIRYANI ---
-    { id:'rc1',  name:'Bolai Mutton Biryani',                   marathi:'बोलाईचे मटण बिर्याणी',               price:250, category:'rice',   diet:'nonveg', desc:'Fragrant basmati rice dum-cooked with tender Bolai mutton',                              img:'img/bolai_mutton_biryani.jpeg' },
-    { id:'rc2',  name:'Gavran / Broiler Chicken Biryani',       marathi:'गावरान / बॉयलर चिकन बिर्याणी',       price:200, category:'rice',   diet:'nonveg', desc:'Aromatic spiced Gavran or Broiler chicken dum biryani',                                  img:'img/gavran_broiler_chicken_biryani.jpeg' },
-    { id:'rc3',  name:'Egg Rice',                               marathi:'अंडा राईस',                          price:180, category:'rice',   diet:'nonveg', desc:'Wok-tossed spiced egg fried rice',                                                       img:'img/egg_rice.jpeg' },
+    // --- ROTI & NAAN ---
+    { id:'rt1',  name:'Butter Naan',                      marathi:'बटर नान',                        price:50,  category:'roti',     diet:'veg',    desc:'Soft clay-oven naan brushed with rich butter',                                           img:'img/tandoor_naan.jpeg' },
+    { id:'rt2',  name:'Garlic Naan',                      marathi:'गारलिक नान',                     price:60,  category:'roti',     diet:'veg',    desc:'Tandoori naan topped with roasted garlic & coriander',                                   img:'img/tandoor_naan.jpeg' },
+    { id:'rt3',  name:'Masala Roti',                      marathi:'मसाला रोटी',                     price:40,  category:'roti',     diet:'veg',    desc:'Spiced whole wheat tandoor roti',                                                        img:'img/butter_missi_roti.jpeg' },
+
+    // --- BIRYANI & RICE ---
+    { id:'rc1',  name:'Chicken Biryani (Full)',           marathi:'चिकन बिर्याणी फुल',              price:220, category:'rice',     diet:'nonveg', desc:'Aromatic spiced chicken dum biryani (Full)',                                             img:'img/gavran_broiler_chicken_biryani.jpeg' },
+    { id:'rc2',  name:'Chicken Biryani (Half)',           marathi:'चिकन बिर्याणी हाफ',              price:120, category:'rice',     diet:'nonveg', desc:'Aromatic spiced chicken dum biryani (Half)',                                             img:'img/gavran_broiler_chicken_biryani.jpeg' },
+    { id:'rc3',  name:'Mutton Biryani (Half)',            marathi:'मटण बिर्याणी हाफ',               price:150, category:'rice',     diet:'nonveg', desc:'Fragrant basmati rice dum-cooked with tender mutton (Half)',                             img:'img/bolai_mutton_biryani.jpeg' },
+    { id:'rc4',  name:'Veg Biryani (Half)',               marathi:'व्हेज बिर्याणी हाफ',              price:120, category:'rice',     diet:'veg',    desc:'Aromatic basmati biryani loaded with spiced vegetables (Half)',                          img:'img/veg_biryani.jpeg' },
+    { id:'rc5',  name:'Plain Rice (Full)',                marathi:'प्लेन राईस फुल',                 price:100, category:'rice',     diet:'veg',    desc:'Steamed plain basmati rice (Full)',                                                      img:'img/plain_rice_full.jpeg' },
+    { id:'rc6',  name:'Masala Rice (Half)',               marathi:'मसाला राईस हाफ',                 price:120, category:'rice',     diet:'veg',    desc:'Traditional Maharashtrian spiced masala bhat (Half)',                                    img:'img/veg_pulao.jpeg' },
 
     // --- VEG MAIN COURSE ---
-    { id:'vg1',  name:'Maharaja Special Veg',                   marathi:'महाराजा स्पेशल',                     price:240, category:'veg',    diet:'veg',    desc:'Chef’s signature rich royal veg delicacy',                                               img:'img/maharaja_special_veg.jpeg' },
-    { id:'vg2',  name:'Mix Veg',                                marathi:'मिक्स व्हेज',                         price:180, category:'veg',    diet:'veg',    desc:'Garden fresh vegetables cooked in medium-spiced gravy',                                  img:'img/mix_veg.jpeg' },
-    { id:'vg3',  name:'Veg Kolhapuri',                          marathi:'व्हेज कोल्हापुरी',                    price:200, category:'veg',    diet:'veg',    desc:'Fiery & bold Kolhapuri masala mixed vegetables',                                         img:'img/veg_kolhapuri.jpeg' },
-    { id:'vg4',  name:'Veg Maratha',                            marathi:'व्हेज मराठा',                         price:200, category:'veg',    diet:'veg',    desc:'Crispy veg koftas in spicy Maharashtrian gravy',                                         img:'img/veg_maratha.jpeg' },
-    { id:'vg5',  name:'Paneer Masala',                          marathi:'पनीर मसाला',                         price:160, category:'veg',    diet:'veg',    desc:'Soft cottage cheese cubes in spiced onion-tomato gravy',                                 img:'img/paneer_masala.jpeg' },
-    { id:'vg6',  name:'Paneer Bhurji',                          marathi:'पनीर बुर्जी',                         price:180, category:'veg',    diet:'veg',    desc:'Scrambled spiced paneer tossed with capsicum & tomatoes',                                img:'img/paneer_bhurji.jpeg' },
-    { id:'vg7',  name:'Paneer Butter Masala',                   marathi:'पनीर बटर मसाला',                     price:180, category:'veg',    diet:'veg',    desc:'Creamy, buttery tomato-cashew paneer gravy',                                             img:'img/paneer_butter_masala.jpeg' },
-    { id:'vg8',  name:'Matar Paneer Masala',                    marathi:'मटर पनीर मसाला',                     price:180, category:'veg',    diet:'veg',    desc:'Classic green peas & cottage cheese curry',                                              img:'img/kaju_paneer_masala.jpeg' },
-    { id:'vg9',  name:'Paneer Kadhai',                          marathi:'पनीर कढाई',                         price:180, category:'veg',    diet:'veg',    desc:'Paneer tossed with bell peppers & freshly ground kadhai spices',                         img:'img/paneer_kadai.jpeg' },
-    { id:'vg10', name:'Veg Kadhai',                             marathi:'व्हेज कढाई',                         price:200, category:'veg',    diet:'veg',    desc:'Assorted veggies in aromatic kadhai masala',                                             img:'img/veg_kadai.jpeg' },
-    { id:'vg11', name:'Green Peas Masala',                      marathi:'ग्रीनपीस मसाला',                     price:140, category:'veg',    diet:'veg',    desc:'Green peas simmered in flavorful Indian spices',                                         img:'img/green_peas_masala.jpeg' },
-    { id:'vg12', name:'Green Peas Fry',                         marathi:'ग्रीनपीस फ्राय',                      price:160, category:'veg',    diet:'veg',    desc:'Spicy tawa-tossed green peas masala fry',                                                img:'img/green_peas_oil_fry.jpeg' },
-    { id:'vg13', name:'Aloo Matar',                             marathi:'आलु मटर',                            price:140, category:'veg',    diet:'veg',    desc:'Homestyle potato & green peas curry',                                                    img:'img/aloo_matar.jpeg' },
-    { id:'vg14', name:'Shev Bhaji',                             marathi:'शेवभाजी',                            price:130, category:'veg',    diet:'veg',    desc:'Authentic Khandeshi/Maharashtrian spicy rassa topped with crisp shev',                   img:'img/shev_bhaji.jpeg' },
-    { id:'vg15', name:'Baingan Masala',                         marathi:'बैंगन मसाला',                         price:130, category:'veg',    diet:'veg',    desc:'Stuffed baby brinjals in roasted peanut-coconut masala',                                 img:'img/baingan_masala.jpeg' },
-    { id:'vg16', name:'Bhendi Masala',                          marathi:'भेंडी मसाला',                         price:140, category:'veg',    diet:'veg',    desc:'Okra cooked with onions, tomatoes & spices',                                             img:'img/bhendi_masala.jpeg' },
-    { id:'vg17', name:'Bhendi Fry',                             marathi:'भेंडी फ्राय',                         price:140, category:'veg',    diet:'veg',    desc:'Crispy spiced ladies finger fry',                                                        img:'img/bhendi_fry.jpeg' },
-    { id:'vg18', name:'Matki Masala',                           marathi:'मटकी मसाला',                         price:130, category:'veg',    diet:'veg',    desc:'Sprouted moth beans cooked in traditional gravy',                                        img:'img/methi_masala.jpeg' },
-    { id:'vg19', name:'Matki Fry',                              marathi:'मटकी फ्राय',                         price:150, category:'veg',    diet:'veg',    desc:'Dry spiced sprouted matki usal fry',                                                     img:'img/matki_fry.jpeg' },
-    { id:'vg20', name:'Akkha Masoor',                           marathi:'अख्खा मसुर',                         price:130, category:'veg',    diet:'veg',    desc:'Whole red lentils slow-cooked with garlic tadka',                                        img:'img/akkha_masoor.jpeg' },
-    { id:'vg21', name:'Kaju Curry',                             marathi:'काजु करी',                           price:220, category:'veg',    diet:'veg',    desc:'Roasted cashews in creamy mildly spiced curry',                                          img:'img/kaju_curry.jpeg' },
-    { id:'vg22', name:'Kaju Masala',                            marathi:'काजु मसाला',                         price:230, category:'veg',    diet:'veg',    desc:'Rich spicy cashew nut masala',                                                           img:'img/kaju_masala.jpeg' },
-    { id:'vg23', name:'Dal Tadka',                              marathi:'दाल तडका',                           price:160, category:'veg',    diet:'veg',    desc:'Yellow lentils tempered with ghee, cumin & red chillies',                                img:'img/dal_tadka.jpeg' },
-    { id:'vg24', name:'Dal Fry',                                marathi:'दाल फ्राय',                           price:130, category:'veg',    diet:'veg',    desc:'Classic comforting homestyle dal fry',                                                   img:'img/dal_fry.jpeg' },
-    { id:'vg25', name:'Dal Kolhapuri',                          marathi:'दाल कोल्हापुरी',                      price:180, category:'veg',    diet:'veg',    desc:'Spicy Kolhapuri style tempered lentils',                                                 img:'img/dal_kolhapuri.jpeg' },
-    { id:'vg26', name:'Chana Masala',                           marathi:'चना मसाला',                          price:130, category:'veg',    diet:'veg',    desc:'Tangy & spiced chickpea curry',                                                          img:'img/chana_masala.jpeg' },
+    { id:'vg1',  name:'Green Peas Masala',                marathi:'ग्रिन पिस मसाला',                price:150, category:'veg',      diet:'veg',    desc:'Green peas simmered in flavorful Indian spices',                                         img:'img/green_peas_masala.jpeg' },
+    { id:'vg2',  name:'Green Peas Handi (Full)',          marathi:'ग्रिन पिस हंडी फुल',             price:600, category:'veg',      diet:'veg',    desc:'Rich green peas curry cooked in traditional handi (Full)',                               img:'img/green_peas_masala.jpeg' },
+    { id:'vg3',  name:'Green Peas Handi (Half)',          marathi:'ग्रिन पिस हंडी हाफ',             price:300, category:'veg',      diet:'veg',    desc:'Rich green peas curry cooked in traditional handi (Half)',                               img:'img/green_peas_masala.jpeg' },
+    { id:'vg4',  name:'Aloo Matar',                       marathi:'आलू मटर',                        price:160, category:'veg',      diet:'veg',    desc:'Homestyle potato & green peas curry',                                                    img:'img/aloo_matar.jpeg' },
+    { id:'vg5',  name:'Matki Masala',                     marathi:'मटकी मसाला',                     price:150, category:'veg',      diet:'veg',    desc:'Sprouted moth beans cooked in traditional gravy',                                        img:'img/methi_masala.jpeg' },
+    { id:'vg6',  name:'Matki Fry',                        marathi:'मटकी फ्राय',                     price:160, category:'veg',      diet:'veg',    desc:'Dry spiced sprouted matki usal fry',                                                     img:'img/matki_fry.jpeg' },
+    { id:'vg7',  name:'Kaju Curry',                       marathi:'काजू करी',                       price:250, category:'veg',      diet:'veg',    desc:'Roasted cashews in creamy mildly spiced curry',                                          img:'img/kaju_curry.jpeg' },
+    { id:'vg8',  name:'Kaju Paneer Masala',               marathi:'काजू पनिर मसाला',                price:260, category:'veg',      diet:'veg',    desc:'Rich royal gravy with roasted cashews & soft paneer cubes',                              img:'img/kaju_paneer_masala.jpeg' },
+    { id:'vg9',  name:'Soyabean Masala',                  marathi:'सोयाबीन मसाला',                  price:130, category:'veg',      diet:'veg',    desc:'Protein-rich soya chunks cooked in spicy onion-tomato masala',                           img:'img/mix_veg.jpeg' },
+    { id:'vg10', name:'Soyabean Fry',                     marathi:'सोयाबीन फ्राय',                  price:160, category:'veg',      diet:'veg',    desc:'Crispy spiced pan-tossed soyabean fry',                                                  img:'img/mix_veg.jpeg' },
+    { id:'vg11', name:'Soyabean Roast (Kadak)',           marathi:'सोयाबीन रोस्ट (कडक)',            price:160, category:'veg',      diet:'veg',    desc:'Extra crunchy roasted spicy soyabean starter',                                           img:'img/mix_veg.jpeg' },
+    { id:'vg12', name:'Paneer Tikka',                     marathi:'पनिर टिक्का',                    price:220, category:'veg',      diet:'veg',    desc:'Char-grilled marinated cottage cheese cubes with capsicum & onion',                      img:'img/paneer_kadai.jpeg' },
+    { id:'vg13', name:'Paneer 65',                        marathi:'पनिर 65',                        price:160, category:'veg',      diet:'veg',    desc:'Crispy fried spicy paneer starter tossed with curry leaves',                            img:'img/paneer_masala.jpeg' },
+    { id:'vg14', name:'Paneer Handi (Full)',              marathi:'पनिर हंडी फुल',                  price:640, category:'veg',      diet:'veg',    desc:'Creamy rich cottage cheese handi (Full portion)',                                        img:'img/paneer_butter_masala.jpeg' },
+    { id:'vg15', name:'Paneer Handi (Half)',              marathi:'पनिर हंडी हाफ',                  price:320, category:'veg',      diet:'veg',    desc:'Creamy rich cottage cheese handi (Half portion)',                                        img:'img/paneer_butter_masala.jpeg' },
+    { id:'vg16', name:'Matar Paneer Handi (Full)',        marathi:'मटर पनिर हंडी फुल',              price:680, category:'veg',      diet:'veg',    desc:'Green peas & cottage cheese handi (Full portion)',                                       img:'img/paneer_butter_masala.jpeg' },
+    { id:'vg17', name:'Matar Paneer Handi (Half)',        marathi:'मटर पनिर हाफ हंडी',              price:360, category:'veg',      diet:'veg',    desc:'Green peas & cottage cheese handi (Half portion)',                                       img:'img/paneer_butter_masala.jpeg' },
+    { id:'vg18', name:'Veg Handi (Full)',                 marathi:'व्हेज हंडी फुल',                  price:680, category:'veg',      diet:'veg',    desc:'Assorted garden vegetables cooked in rich handi gravy (Full)',                           img:'img/mix_veg.jpeg' },
+    { id:'vg19', name:'Veg Handi (Half)',                 marathi:'व्हेज हंडी हाफ',                  price:360, category:'veg',      diet:'veg',    desc:'Assorted garden vegetables cooked in rich handi gravy (Half)',                           img:'img/mix_veg.jpeg' },
+    { id:'vg20', name:'Veg Rassa Handi (Half)',           marathi:'व्हेज रस्सा हंडी हाफ',            price:120, category:'veg',      diet:'veg',    desc:'Traditional spicy Maharashtrian veg rassa (Half handi)',                                 img:'img/shev_bhaji.jpeg' },
+    { id:'vg21', name:'Veg Rassa Vati',                   marathi:'व्हेज रस्सा वाटी',                price:60,  category:'veg',      diet:'veg',    desc:'Single bowl of spicy Maharashtrian veg rassa',                                           img:'img/shev_bhaji.jpeg' },
 
     // --- VEG SNACKS ---
-    { id:'sn1',  name:'Masala Papad',                           marathi:'मसाला पापड',                         price:40,  category:'snacks', diet:'veg',    desc:'Roasted papad topped with tangy onion, tomato & sev',                                    img:'img/masala_papad.jpeg' },
-    { id:'sn2',  name:'Roasted Papad',                          marathi:'रो पापड',                            price:15,  category:'snacks', diet:'veg',    desc:'Crisp flame-roasted urad papad',                                                         img:'img/roasted_papad.jpeg' },
-    { id:'sn3',  name:'Fry Papad',                              marathi:'फ्राय पापड',                          price:20,  category:'snacks', diet:'veg',    desc:'Golden fried crunchy papad',                                                             img:'img/fry_papad.jpeg' },
-    { id:'sn4',  name:'Lasun Fry',                              marathi:'लसुन फ्राय',                          price:180, category:'snacks', diet:'veg',    desc:'Crispy spicy fried garlic starter',                                                      img:'img/lasun_fry.jpeg' },
-    { id:'sn5',  name:'Chana Fry',                              marathi:'चना फ्राय',                           price:140, category:'snacks', diet:'veg',    desc:'Crunchy garlic-spiced fried chickpeas',                                                  img:'img/chana_fry.jpeg' },
-    { id:'sn6',  name:'Mirchi Fry',                             marathi:'मिरची फ्राय',                         price:50,  category:'snacks', diet:'veg',    desc:'Salted & fried green chillies',                                                          img:'img/mirchi_fry.jpeg' },
+    { id:'sn1',  name:'Nachani Fry Papad',                marathi:'नाचणी फ्राय पापड',               price:30,  category:'snacks',   diet:'veg',    desc:'Crispy fried healthy finger millet (nachani) papad',                                     img:'img/fry_papad.jpeg' },
+    { id:'sn2',  name:'Nachani Masala Papad',             marathi:'नाचणी मसाला पापड',               price:60,  category:'snacks',   diet:'veg',    desc:'Crisp nachani papad topped with tangy onion, tomato & sev',                              img:'img/masala_papad.jpeg' },
+    { id:'sn3',  name:'Chana Garlic',                     marathi:'चणा गारलिक',                     price:180, category:'snacks',   diet:'veg',    desc:'Crunchy garlic-spiced fried chickpeas',                                                  img:'img/chana_fry.jpeg' },
+    { id:'sn4',  name:'Green Peas Garlic',                marathi:'ग्रिनपिस गारलिक',                price:180, category:'snacks',   diet:'veg',    desc:'Crispy tossed green peas with roasted garlic & spices',                                  img:'img/green_peas_oil_fry.jpeg' },
+    { id:'sn5',  name:'Soyabean Chilli',                  marathi:'सोयाबीन चिल्ली',                  price:160, category:'snacks',   diet:'veg',    desc:'Indo-Chinese style spicy soyabean chilli dry',                                           img:'img/mix_veg.jpeg' },
+    { id:'sn6',  name:'Paneer Chilli',                    marathi:'पनिर चिल्ली',                    price:180, category:'snacks',   diet:'veg',    desc:'Crispy paneer cubes tossed with capsicum, onion & chilli sauce',                        img:'img/paneer_kadai.jpeg' },
 
-    // --- VEG RICE & BIRYANI ---
-    { id:'vr1',  name:'Veg Biryani',                            marathi:'व्हेज बिर्याणी',                       price:180, category:'rice',   diet:'veg',    desc:'Aromatic basmati biryani loaded with spiced vegetables',                                 img:'img/veg_biryani.jpeg' },
-    { id:'vr2',  name:'Veg Pulao',                              marathi:'व्हेज पुलाव',                         price:180, category:'rice',   diet:'veg',    desc:'Mildly spiced vegetable & dry-fruit pulao',                                              img:'img/veg_pulao.jpeg' },
-    { id:'vr3',  name:'Green Peas Rice',                        marathi:'ग्रीनपीस राईस',                      price:150, category:'rice',   diet:'veg',    desc:'Fragrant green peas matar pulao rice',                                                   img:'img/green_peas_rice.jpeg' },
-    { id:'vr4',  name:'Paneer Rice',                            marathi:'पनीर राईस',                          price:200, category:'rice',   diet:'veg',    desc:'Spiced basmati rice tossed with golden paneer cubes',                                    img:'img/paneer_rice.jpeg' },
-    { id:'vr5',  name:'Jeera Rice (Full)',                      marathi:'जीरा राईस फुल',                      price:120, category:'rice',   diet:'veg',    desc:'Cumin-tempered fluffy basmati rice (Full)',                                              img:'img/jeera_rice_full.jpeg' },
-    { id:'vr6',  name:'Jeera Rice (Half)',                      marathi:'जीरा राईस हाफ',                      price:60,  category:'rice',   diet:'veg',    desc:'Cumin-tempered fluffy basmati rice (Half)',                                              img:'img/jeera_rice_half.jpeg' },
-    { id:'vr7',  name:'Plain Rice (Full)',                      marathi:'प्लेन राईस फुल',                     price:90,  category:'rice',   diet:'veg',    desc:'Steamed plain rice (Full)',                                                              img:'img/plain_rice_full.jpeg' },
-    { id:'vr8',  name:'Plain Rice (Half)',                      marathi:'प्लेन राईस हाफ',                     price:60,  category:'rice',   diet:'veg',    desc:'Steamed plain rice (Half)',                                                              img:'img/plain_rice_half.jpeg' },
-    { id:'vr9',  name:'Dal Khichdi (Full)',                     marathi:'दाल खिचडी फुल',                      price:180, category:'rice',   diet:'veg',    desc:'Comforting ghee-tadka dal khichdi (Full)',                                               img:'img/dal_khichdi_full.jpeg' },
-    { id:'vr10', name:'Dal Khichdi (Half)',                     marathi:'दाल खिचडी हाफ',                      price:120, category:'rice',   diet:'veg',    desc:'Comforting ghee-tadka dal khichdi (Half)',                                               img:'img/dal_khichdi_half.jpeg' },
-  
+    // --- OUTSIDE MATERIAL COOKING (बाहेरून आणलेले बनवणे - PER KG) ---
+    { id:'ck1',  name:'Broiler Chicken Cooking - 2 Types (Per Kg)', marathi:'बॉयलर चिकन बनवणे (दोन प्रकार) पर Kg', price:280, category:'cooking', diet:'nonveg', desc:'Bring your own Broiler chicken — cooked into 2 dishes (Rassa & Fry) per Kg',             img:'img/gavran_broiler_chicken_handi_full.jpeg' },
+    { id:'ck2',  name:'Broiler Chicken Cooking - 3 Types (Per Kg)', marathi:'बॉयलर चिकन बनवणे (तिन प्रकार) पर Kg', price:350, category:'cooking', diet:'nonveg', desc:'Bring your own Broiler chicken — cooked into 3 dishes per Kg',                           img:'img/gavran_broiler_chicken_handi_full.jpeg' },
+    { id:'ck3',  name:'Gavran Chicken Cooking (Per Kg)',            marathi:'गावरान चिकन बनवणे पर Kg',             price:400, category:'cooking', diet:'nonveg', desc:'Bring your own Gavran chicken — authentic traditional preparation per Kg',               img:'img/gavran_broiler_chicken_handi_full.jpeg' },
+    { id:'ck4',  name:'Mutton Cooking (Per Kg)',                    marathi:'मटण बनवणे पर Kg',                     price:400, category:'cooking', diet:'nonveg', desc:'Bring your own mutton — slow-cooked in authentic Maharashtrian spices per Kg',           img:'img/mutton_handi_full.jpeg' },
+    { id:'ck5',  name:'Crab (Khekda) Cooking (Per Kg)',             marathi:'खेकडा बनवणे पर Kg',                   price:300, category:'cooking', diet:'nonveg', desc:'Bring your own crabs — cooked in spicy traditional masala per Kg',                       img:'img/chilapi_fish_curry.jpeg' },
+    { id:'ck6',  name:'Fish Cooking - 2 Types: Fry, Rassa (Per Kg)',marathi:'फिश / मासे बनवणे (दोन: फ्राय, रस्सा) पर Kg', price:200, category:'cooking', diet:'nonveg', desc:'Bring your own fish — prepared in 2 styles (Fry & Rassa) per Kg',                        img:'img/chilapi_fish_fry.jpeg' },
+    { id:'ck7',  name:'Fish Cooking - 3 Types: Fry, Rassa (Per Kg)',marathi:'फिश / मासे बनवणे (तिन: फ्राय, रस्सा) पर Kg', price:250, category:'cooking', diet:'nonveg', desc:'Bring your own fish — prepared in 3 styles per Kg',                                      img:'img/chilapi_fish_fry.jpeg' }
   ];
 
   const categoryLabels = {
     thali:'Special Thali',
-    nonveg:'Non-Veg',
-    egg:'Chilapi Fish & Egg',
+    nonveg:'Non-Veg Main',
+    tandoori:'Tandoori',
+    egg:'Fish & Egg',
     veg:'Veg Main',
-    snacks:'Snacks',
-    roti:'Roti & Bhakri',
-    rice:'Rice & Biryani'
+    snacks:'Veg Snacks',
+    roti:'Roti & Naan',
+    rice:'Biryani & Rice',
+    cooking:'Per Kg Cooking'
   };
 
   /* ============ STATE ============ */
