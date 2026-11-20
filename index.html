@@ -484,10 +484,9 @@ img{max-width:100%;display:block}
 
   /* ============ CONFIG ============ */
   const WHATSAPP_NUMBER = '919923626411';
-  const FALLBACK_IMG = 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&auto=format&fit=crop&q=80';
 
-  /* ============ MENU DATA WITH LOCAL img/menu_name.jpeg PATHS ============ */
-  const menuItems =[
+  /* ============ MENU DATA (ONLY LOCAL img/ PATHS) ============ */
+  const menuItems = [
     // --- SPECIAL THALIS ---
     { id:'th1', name:'Bolai Mutton Thali',                      marathi:'बोलाईचे मटण थाळी',                     price:280, category:'thali',  diet:'nonveg', desc:'Traditional Maharashtrian Bolai mutton rassa, sukkha, bhakri/roti & rice',              img:'img/bolai_mutton_thali.jpeg' },
     { id:'th2', name:'Special Bolai Mutton Thali',              marathi:'स्पेशल बोलाईचे मटण थाळी',              price:350, category:'thali',  diet:'nonveg', desc:'Maharaja special Bolai mutton thali with extra gravy, fry & accompaniments',             img:'img/special_bolai_mutton_thali.jpeg' },
@@ -593,6 +592,7 @@ img{max-width:100%;display:block}
     { id:'vr9',  name:'Dal Khichdi (Full)',                     marathi:'दाल खिचडी फुल',                      price:180, category:'rice',   diet:'veg',    desc:'Comforting ghee-tadka dal khichdi (Full)',                                               img:'img/dal_khichdi_full.jpeg' },
     { id:'vr10', name:'Dal Khichdi (Half)',                     marathi:'दाल खिचडी हाफ',                      price:120, category:'rice',   diet:'veg',    desc:'Comforting ghee-tadka dal khichdi (Half)',                                               img:'img/dal_khichdi_half.jpeg' }
   ];
+
   const categoryLabels = {
     thali:'Special Thali',
     nonveg:'Non-Veg',
@@ -675,7 +675,7 @@ img{max-width:100%;display:block}
           <div class="card-img-wrapper">
             <span class="cat-tag"><span class="diet-dot ${dietClass}"></span> ${escapeHtml(catLabel)}</span>
             <span class="price-badge">${formatPrice(item.price)}</span>
-            <img class="card-img" src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
+            <img class="card-img" src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy">
           </div>
           <div class="card-content">
             <div class="card-title-row">
@@ -713,7 +713,7 @@ img{max-width:100%;display:block}
         const qty = cart[id];
         return `
           <div class="cart-item">
-            <img class="cart-item-img" src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
+            <img class="cart-item-img" src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy">
             <div class="cart-item-info">
               <span class="cart-item-title">${escapeHtml(item.name)}</span>
               <span class="cart-item-marathi">${escapeHtml(item.marathi || '')}</span>
